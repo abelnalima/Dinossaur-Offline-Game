@@ -1,8 +1,10 @@
 const dino = document.querySelector('.dino');
 const background = document.querySelector('.background');
+const score = document.querySelector('.score');
 
 let position = 0;
 let isJumping = false;
+let point = 0;
 
 function handleKeyup(event) {
     if (event.keyCode === 32) {
@@ -48,9 +50,11 @@ function createCactus() {
         if (cactusPosition < -60) {
             clearInterval(leftInterval);
             background.removeChild(cactus);
+            point += 100;
+            updateScore();
         } else if (cactusPosition > 0 && cactusPosition < 60 && position < 60) {
             clearInterval(leftInterval);
-            document.body.innerHTML = <h1 class='gameOver'>Fim de Jogo</h1>;
+            document.body.innerHTML = "<h1 class='gameOver'>Fim de Jogo</h1>";
         } else {
             cactusPosition -= 10;
             cactus.style.left = cactusPosition + 'px';
@@ -60,5 +64,10 @@ function createCactus() {
     setTimeout(createCactus, randomTime);
 }
 
+function updateScore() {
+    score.innerHTML = point;
+}
+
 createCactus();
+updateScore();
 document.addEventListener('keyup', handleKeyup);

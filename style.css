@@ -1,7 +1,11 @@
+body {
+    background: #fafafa;
+}
+
 .dino {
     width: 60px;
     height: 60px;
-    background: green;
+    background: url(./resources/dino.png);
     position: absolute;
     bottom: 0;
 }
@@ -11,5 +15,33 @@
     width: 60px;
     height: 60px;
     bottom: 0;
-    background: red;
+    background: url(./resources/cactus.png);
+}
+
+.gameOver {
+    text-align: center;
+    color: #666666;
+    margin-top: 300px;
+    font-family: 'Arial';
+}
+
+.background {
+    position: absolute;
+    bottom: 0;
+    background: url(./resources/background.png);
+    background-repeat: repeat-x;
+    animation: slideRight 600s infinite linear;
+    width: 1000%;
+    height: 200px;
+}
+
+.score {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 0;
+    text-align: center;
+    font-family: 'Arial';
+    font-size: 30px;
+    color: black;
 }
